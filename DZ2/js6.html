@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    'use strict';
+
+    let money = +prompt("Введите сумму, которую хотите положить в банк: "); // ввод суммы вклада.
+
+    /**
+     * Функция правильно склоняет слово "Рубль" в зависимости от введенной суммы вклада.
+     * @param {number} money - сумма вклада.
+     */
+    function deposit(money) {
+        let ruble; // Склонение слова "Рубль"
+        if (money < 0 || isNaN(money)) {
+            alert("Ошибка, введите положительное сумму");
+            return;
+        } else if ((money % 100) >= 11 && (money % 100) <= 19) {
+            ruble = "рублей";
+        } else
+            switch (money % 10) {
+                case 1:
+                    ruble = "рубль";
+                    break;
+                case 2:
+                case 3:
+                case 4:
+                    ruble = "рубля";
+                    break;
+                default:
+                    ruble = "рублей";
+            }
+        alert(`Ваша сумма в ${money} ${ruble} успешно зачислена.`);
+    }
+
+    deposit(money);
+
+</script>
+</body>
+</html>

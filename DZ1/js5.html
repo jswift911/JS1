@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    'use strict';
+
+    let ticket = +prompt("Введите номер билета (6 цифр): "); // ввод номера билета
+    let firstNumber = Math.floor((ticket / 1) % 10); // 6 число
+    let secondNumber = Math.floor((ticket / 10) % 10); // 5 число
+    let thirdNumber = Math.floor((ticket / 100) % 10); // 4 число
+    let forthNumber = Math.floor((ticket / 1000) % 10); // 3 число
+    let fifthNumber = Math.floor((ticket / 10000) % 10); // 2 число
+    let sixthNumber = Math.floor((ticket / 100000) % 10); // 1 число
+    let leftNumbers = firstNumber + secondNumber + thirdNumber; // Сумма первых трех чисел
+    let rightNumbers = forthNumber + fifthNumber + sixthNumber; // Сумма последних трех чисел
+    if (leftNumbers === rightNumbers) {
+        alert("УРА! У вас счастливый билет!");
+        console.log("УРА! У вас счастливый билет!");
+    }
+</script>
+</body>
+</html>

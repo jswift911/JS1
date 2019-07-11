@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+          integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <style>
+        .form-wrap {
+            margin: auto;
+            padding: 20px;
+            max-width: 800px
+        }
+    </style>
+</head>
+<body>
+<div class="form-wrap">
+    <form OnSubmit='return validate();' class="my-form" action="">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <input type="text" name="name" id="userName" class="form-control" placeholder="Имя">
+            </div>
+            <div class="form-group col-md-6">
+                <input type="text" name="phone" id="phone" class="form-control" placeholder="Телефон">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <input type="password" name="password" id="password" class="form-control" placeholder="Пароль">
+            </div>
+            <div class="form-group col-md-6">
+                <input type="password" name="password2" id="password2" class="form-control"
+                       placeholder="Повторите пароль">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+</div>
+
+<script>
+    'use strict';
+
+    /**
+     * Функция создает валидность для форм.
+     * @returns {boolean} - возвращает true, если все условия соблюдены.
+     */
+        function validate() {
+            let userName = document.getElementById('userName');
+            let phone = document.getElementById('phone');
+            let password = document.getElementById('password');
+            let password2 = document.getElementById('password2');
+            let sp1 = document.createElement("span");
+
+
+            if (userName.value.length < 1 || userName.value.length > 50) {
+                userName.style.border = '2px solid red';
+                let parentDiv = userName.parentNode;
+                parentDiv.appendChild(sp1);
+                sp1.innerText = "* Поле должно содержать как минимум 1 символ, но не более 50!";
+                sp1.style.fontSize = "11px";
+                sp1.style.color = "red";
+                sp1.style.marginLeft = "12px";
+                return false;
+            } else {
+                userName.style.border = '2px solid lightgreen';
+            }
+
+
+            if (phone.value.length !== 11) {
+                phone.style.border = '2px solid red';
+                let parentDiv = phone.parentNode;
+                parentDiv.appendChild(sp1);
+                sp1.innerText = "* Поле должно содержать ровно 11 символов!";
+                sp1.style.fontSize = "11px";
+                sp1.style.color = "red";
+                sp1.style.marginLeft = "12px";
+                return false;
+            } else {
+                phone.style.border = '2px solid lightgreen';
+            }
+
+            if (password.value.length < 5 || password.value.length > 50) {
+                password.style.border = '2px solid red';
+                let parentDiv = password.parentNode;
+                parentDiv.appendChild(sp1);
+                sp1.innerText = "* Пароль должен быть от 5 до 50 символов!";
+                sp1.style.fontSize = "11px";
+                sp1.style.color = "red";
+                sp1.style.marginLeft = "12px";
+                return false;
+            } else {
+                password.style.border = '2px solid lightgreen';
+            }
+
+            if (password2.value !== password.value) {
+                password2.style.border = '2px solid red';
+                let parentDiv = password2.parentNode;
+                parentDiv.appendChild(sp1);
+                sp1.innerText = "* Пароли должны совпадать!";
+                sp1.style.fontSize = "11px";
+                sp1.style.color = "red";
+                sp1.style.marginLeft = "12px";
+                return false;
+            } else {
+                password2.style.border = '2px solid lightgreen';
+            }
+        }
+
+
+</script>
+</body>
+</html>
