@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+<script>
+    "use strict";
+
+
+    let a = +prompt("Введите целое первое число: ");
+    let b = +prompt("Введите целое второе число: ");
+
+
+    /**
+     * Функция проверяет целое ли число.
+     * @param {number} n - Проверяемое число.
+     * @returns {boolean} - Возвращает true если число целое, или false если нет.
+     */
+
+    function isInteger(n) {
+        return parseInt(n) === n;
+    }
+
+    if (!isInteger(a) || !isInteger(b)) {
+        alert("Одно из введенных значений не является целым числом. Всего доброго!");
+    } else if (a >= 0 && b >= 0) {
+        let summa; // создается внутри ветвления, чтобы переменная вечно не висела в памяти
+        summa = a - b;
+        alert(summa);
+    } else if (a < 0 && b < 0) {
+        let summa;
+        summa = a * b;
+        alert(summa);
+    } else {
+        let summa;
+        summa = a + b;
+        alert(summa);
+    }
+
+
+</script>
+</body>
+
+</html>

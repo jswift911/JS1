@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <title>Магазин</title>
+  <meta charset="utf-8" />
+</head>
+<body>
+<img src="images/clava.jpg" alt="Клавиатура">
+<div>Название товара: Клавиатура</div>
+<div style="display: flex"><div>Цена товара:&nbsp;</div><div id="price">250</div><div>&nbsp;рублей</div></div>
+<br>
+<span>Общее количество товара: </span><input style="display: flex" id="numericUpDown" type="number" value="1" />
+<br>
+<input value="Добавить товар" id="up" type="button"><input value="Удалить товар" id="down" type="button">
+<div style="display: flex"><div>Общая сумма покупки:&nbsp;</div><div id="sum">250 <span> рублей</span></div></div>
+
+<script>
+  let price = document.getElementById("price");
+  let sum = document.getElementById("sum");
+  let numericUpDown = document.getElementById("numericUpDown");
+  let up = document.getElementById("up");
+  let down = document.getElementById("down");
+  up.onclick = () => {
+    numericUpDown.value = (isNaN(numericUpDown.value)) ? 1 : +numericUpDown.value + 1;
+    setSum();
+  };
+  down.onclick = () =>{
+    numericUpDown.value = (numericUpDown.value) > 0 ? +numericUpDown.value - 1 : 0;
+    setSum();
+  };
+
+  numericUpDown.oninput = setSum;
+
+  function setSum() {
+    sum.innerText = (price.innerText * numericUpDown.value) + " рублей";
+  }
+</script>
+</body>
+</html>

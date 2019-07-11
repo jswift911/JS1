@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    'use strict';
+
+    /**
+     * Функция складывает два числа.
+     * @param {number} arg1 - первое число.
+     * @param {number} arg2 - второе число.
+     * @returns {number} возвращает сумму двух чисел.
+     */
+    function add(arg1, arg2) {
+        return arg1 + arg2;
+    }
+
+    /**
+     * Функция вычитает два числа.
+     * @param {number} arg1 - первое число.
+     * @param {number} arg2 - второе число.
+     * @returns {number} возвращает разность двух чисел.
+     */
+    function reduce(arg1, arg2) {
+        return arg1 - arg2;
+    }
+
+    /**
+     * Функция делит два числа.
+     * @param {number} arg1 - первое число.
+     * @param {number} arg2 - второе число.
+     * @returns {number} возвращает частное двух чисел.
+     */
+    function divide(arg1, arg2) {
+        return arg1 / arg2;
+    }
+
+    /**
+     * Функция умножает два числа.
+     * @param {number} arg1 - первое число.
+     * @param {number} arg2 - второе число.
+     * @returns {number} возвращает произведение двух чисел.
+     */
+    function multiply(arg1, arg2) {
+        return arg1 * arg2;
+    }
+
+    /**
+     * Функция выполняет одну из математических операций (сложение, вычитание, деление, умножение).
+     * @param {number} arg1 - Первое число.
+     * @param {number} arg2 - Второе число.
+     * @param {string} operation - Операции: add - сложение, reduce - вычитание, divide - деление, multiply - умножение.
+     * @returns {number} - Возвращает результат выбранной операции.
+     */
+    function mathOperation(arg1, arg2, operation) {
+        let result; // Переменная созданная для возврата значения из области видимости. Без нее будет undefined.
+        switch (operation) {
+            case 'add':
+                result = add(arg1, arg2);
+                break;
+            case 'reduce':
+                result = reduce(arg1, arg2);
+                break;
+            case 'divide':
+                result = divide(arg1, arg2);
+                break;
+            case 'multiply':
+                result = multiply(arg1, arg2);
+                break;
+            default:
+                console.log('Такой операции не существует');
+        }
+        return result;
+    }
+
+    console.log(mathOperation(6, 2, 'add')); // Выведется число 8
+    console.log(mathOperation(6, 2, 'reduce')); // Выведется число 4
+    console.log(mathOperation(6, 2, 'divide')); // Выведется число 3
+    console.log(mathOperation(6, 2, 'multiply')); // Выведется число 12
+
+
+</script>
+</body>
+</html>

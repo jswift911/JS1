@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+<script>
+    "use strict";
+
+    let userNumber = prompt(`Введите число от 0 до 999: `);
+
+    /**
+     * Функция разбивает число по разрядам и возвращает объект с записанными разрядами числа.
+     * @param {string} num - число, которое функция разобьет на разряды,
+     * @returns {object} - объект с записанными разрядами числа.
+     */
+    function getDigitsOfNumber(num) {
+        num = Array.from(userNumber);
+        for (let i = 0; i < num.length; i++) { // Преобразования элементов массива в числа
+            num[i] = parseInt(num[i], 10);
+        }
+        if (userNumber > 999 || userNumber < 0 || isNaN(userNumber)) {
+            console.log(`Значение аргумента должно быть целым числом в диапазоне [0 .. 999]`);
+            return num = {};
+        } else if (num.length === 2) {
+            num[2] = 0;
+            num = {
+                firstDigit: num[1],
+                secondDigit: num[0],
+                thirdDigit: num[2],
+            };
+            return num;
+        } else if (num.length === 1) {
+            num[1] = 0;
+            num[2] = 0;
+            num = {
+                firstDigit: num[0],
+                secondDigit: num[1],
+                thirdDigit: num[2],
+            };
+            return num;
+        } else
+            num = {
+            firstDigit: num[2],
+            secondDigit: num[1],
+            thirdDigit: num[0],
+        };
+        return num;
+    }
+
+    console.log(getDigitsOfNumber(userNumber));
+
+</script>
+</body>
+
+</html>

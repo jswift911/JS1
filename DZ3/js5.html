@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    'use strict';
+
+    const arr = [
+        [2, 4, 6],
+        [1, 5, 10],
+        [7, 4, 1],
+    ];
+
+    /**
+     * Функция возвращает сумму элементов массива.
+     * @param {number[]} arr Массив, сумма элементов которого вернет функция.
+     * @returns {number} Сумма элементов массива.
+     */
+    function getSumOfElements(arr) {
+        let arraySum = 0;
+        for (let i = 0; i < arr.length; i++) {
+            arraySum = arraySum + arr[i];
+        }
+        return arraySum;
+    }
+
+    let sum0 = getSumOfElements(arr[0]);
+    let sum1 = getSumOfElements(arr[1]);
+    let sum2 = getSumOfElements(arr[2]);
+
+    // Переменная хранящая максимальную сумму одного из массивов.
+    let maxSumOfArray = Math.max(sum0, sum1, sum2);
+
+    // Переменная хранящая индекс массива с максимальной суммой элементов.
+    const summaArr = [sum0, sum1, sum2];
+    let maxSumOfArrayIndex = summaArr.indexOf(maxSumOfArray);
+
+    // Ответ на первый пункт ДЗ
+    console.log(`Максимальная сумма массива: ${maxSumOfArray}`);
+    console.log(`Индекс массива с максимальной суммой: ${maxSumOfArrayIndex}`);
+
+    // Ответ на второй пункт ДЗ
+    let minOfMaxArray = Math.min.apply(null, arr[maxSumOfArrayIndex]);
+    console.log(`Минимальное число массива с максимальной суммой: ${minOfMaxArray}`);
+
+</script>
+</body>
+</html>
